@@ -4,13 +4,13 @@ import (
 	"context"
 	"io"
 
+	ma "github.com/dms3-mft/go-multiaddr"
+	ic "github.com/dms3-p2p/go-p2p-crypto"
+	peer "github.com/dms3-p2p/go-p2p-peer"
+	pstore "github.com/dms3-p2p/go-p2p-peerstore"
+	protocol "github.com/dms3-p2p/go-p2p-protocol"
+	smux "github.com/dms3-p2p/go-stream-muxer"
 	"github.com/jbenet/goprocess"
-	ic "github.com/libp2p/go-libp2p-crypto"
-	peer "github.com/libp2p/go-libp2p-peer"
-	pstore "github.com/libp2p/go-libp2p-peerstore"
-	protocol "github.com/libp2p/go-libp2p-protocol"
-	smux "github.com/libp2p/go-stream-muxer"
-	ma "github.com/multiformats/go-multiaddr"
 )
 
 // MessageSizeMax is a soft (recommended) maximum for network messages.
@@ -20,7 +20,7 @@ import (
 const MessageSizeMax = 1 << 22 // 4 MB
 
 // Stream represents a bidirectional channel between two agents in
-// the IPFS network. "agent" is as granular as desired, potentially
+// the DMS3FS network. "agent" is as granular as desired, potentially
 // being a "request -> reply" pair, or whole protocols.
 // Streams are backed by stream-muxer streams underneath the hood.
 type Stream interface {

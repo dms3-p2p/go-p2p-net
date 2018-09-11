@@ -6,7 +6,7 @@ import (
 	"testing"
 	"time"
 
-	inet "github.com/libp2p/go-libp2p-net"
+	inet "github.com/dms3-p2p/go-p2p-net"
 )
 
 var errCloseFailed = errors.New("close failed")
